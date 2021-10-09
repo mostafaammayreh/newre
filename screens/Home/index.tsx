@@ -10,6 +10,7 @@ import { Text, useThemeColor } from '../../components/Themed'
 import Colors from '../../constants/Colors'
 import { meditations, MeditationItem } from '../../data/meditations'
 import { HomeParamList } from '../../types'
+import Notify from '../../notifications/notificationHandler'
 import { useAppSelector } from '../../hooks'
 import { selectFavourites } from '../../redux/selectors'
 
@@ -18,6 +19,7 @@ interface Props {
 }
 
 export default function Home({ navigation }: Props) {
+  Notify.askPermission()
   const textColor = useThemeColor({}, 'text')
 
   const favourites = useAppSelector(selectFavourites)
